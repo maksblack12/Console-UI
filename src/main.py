@@ -1,12 +1,4 @@
 import ctypes;ctypes.windll.kernel32.SetConsoleMode(ctypes.windll.kernel32.GetStdHandle(-11),7)
-# ─ ━ │ ┃ ┄ ┅ ┆ ┇ ┈ ┉ ┊ ┋ ┌ ┍ ┎ ┏
-# ┐ ┑ ┒ ┓ └ ┕ ┖ ┗ ┘ ┙ ┚ ┛ ├ ┝ ┞ ┟
-# ┠ ┡ ┢ ┣ ┤ ┥ ┦ ┧ ┨ ┩ ┪ ┫ ┬ ┭ ┮ ┯
-# ┰ ┱ ┲ ┳ ┴ ┵ ┶ ┷ ┸ ┹ ┺ ┻ ┼ ┽ ┾ ┿
-# ╀ ╁ ╂ ╃ ╄ ╅ ╆ ╇ ╈ ╉ ╊ ╋ ╌ ╍ ╎ ╏
-# ═ ║ ╒ ╓ ╔ ╕ ╖ ╗ ╘ ╙ ╚ ╛ ╜ ╝ ╞ ╟
-# ╠ ╡ ╢ ╣ ╤ ╥ ╦ ╧ ╨ ╩ ╪ ╫ ╬ ╭ ╮ ╯
-# ╰ ╱ ╲ ╳ ╴ ╵ ╶ ╷ ╸ ╹ ╺ ╻ ╼ ╽ ╾ ╿
 
 
 class Style:
@@ -48,6 +40,15 @@ class Canvas:
 			self.pixels[y][offset_x]=Pixel(style.vertical_line, color, bg_color)
 			self.pixels[y][offset_x+w-1]=Pixel(style.vertical_line, color, bg_color)
 
+# ─ ━ │ ┃ ┄ ┅ ┆ ┇ ┈ ┉ ┊ ┋ ┌ ┍ ┎ ┏
+# ┐ ┑ ┒ ┓ └ ┕ ┖ ┗ ┘ ┙ ┚ ┛ ├ ┝ ┞ ┟
+# ┠ ┡ ┢ ┣ ┤ ┥ ┦ ┧ ┨ ┩ ┪ ┫ ┬ ┭ ┮ ┯
+# ┰ ┱ ┲ ┳ ┴ ┵ ┶ ┷ ┸ ┹ ┺ ┻ ┼ ┽ ┾ ┿
+# ╀ ╁ ╂ ╃ ╄ ╅ ╆ ╇ ╈ ╉ ╊ ╋ ╌ ╍ ╎ ╏
+# ═ ║ ╒ ╓ ╔ ╕ ╖ ╗ ╘ ╙ ╚ ╛ ╜ ╝ ╞ ╟
+# ╠ ╡ ╢ ╣ ╤ ╥ ╦ ╧ ╨ ╩ ╪ ╫ ╬ ╭ ╮ ╯
+# ╰ ╱ ╲ ╳ ╴ ╵ ╶ ╷ ╸ ╹ ╺ ╻ ╼ ╽ ╾ ╿
+
 STYLE_SINGLE_STROKE=Style(
 	"┌",
 	"┐",
@@ -56,6 +57,25 @@ STYLE_SINGLE_STROKE=Style(
 	"│",
 	"─"
 )
+
+STYLE_SINGLE_ROUNDED_STROKE=Style(
+	"╭",
+	"╮",
+	"╰",
+	"╯",
+	"│",
+	"─"
+)
+
+STYLE_SINGLE_THICK_STROKE=Style(
+	"┏",
+	"┓",
+	"┗",
+	"┛",
+	"┃",
+	"━"
+)
+
 STYLE_DOUBLE_STROKE=Style(
 	"╔",
 	"╗",
@@ -67,6 +87,6 @@ STYLE_DOUBLE_STROKE=Style(
 
 
 canvas=Canvas(24, 12)
-canvas.rectangle(2, 1, 10, 8, (255, 255, 0), (0, 0, 0), STYLE_SINGLE_STROKE)
-canvas.rectangle(4, 2, 6, 6, (255, 0, 0), (0, 0, 0), STYLE_DOUBLE_STROKE)
+canvas.rectangle(2, 1, 10, 8, (255, 255, 0), (0, 0, 0), STYLE_SINGLE_ROUNDED_STROKE)
+canvas.rectangle(4, 2, 6, 6, (255, 0, 0), (0, 0, 0), STYLE_SINGLE_THICK_STROKE)
 canvas.print()
